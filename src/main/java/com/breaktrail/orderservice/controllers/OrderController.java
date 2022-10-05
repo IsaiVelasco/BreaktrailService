@@ -2,6 +2,8 @@ package com.breaktrail.orderservice.controllers;
 
 import com.breaktrail.orderservice.dto.OrderRequest;
 import com.breaktrail.orderservice.dto.OrderResponse;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +13,9 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@Api
 public class OrderController {
+    @ApiOperation(value = "Retrive all exists orders", notes = "Return all orders in store")
     @GetMapping(value = "order")
     public ResponseEntity<List<OrderResponse>> findAll(){
         List<OrderResponse> orderList = new ArrayList();
